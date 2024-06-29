@@ -1,0 +1,10 @@
+﻿{
+  "id": "document-2",
+  "tags": [ "personal", "notes" ],
+  "data": {
+    "title": "Personal Notes",
+    "date": "2024-06-27",
+    "content": "These are some personal notes on various topics.",
+    "topics": [ "meeting notes", "project ideas", "reminders" ]
+  }
+}
