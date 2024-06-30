@@ -15,4 +15,8 @@
     <PackageReference Include="WebApiContrib.Core.Formatter.MessagePack" Version="2.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Storage\Implementations\HDD\Documents\" />
+  </ItemGroup>
+
 </Project>

@@ -8,6 +8,6 @@ namespace DocumentsService.API.Models
 
         public required string Id { get; set; }
         public required List<string> Tags { get; set; }
-        public required Dictionary<string, dynamic> Data { get; set; }
+        public required Dictionary<string, object> Data { get; set; }
     }
 }

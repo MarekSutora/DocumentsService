@@ -1,13 +1,9 @@
 using DocumentsService.API.Storage.Abstractions;
-using DocumentsService.API.Storage.Implementations;
-using System.Xml;
 using WebApiContrib.Core.Formatter.MessagePack;
-using System.Text;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using DocumentsService.Storage.Implementations.InMemoryDb;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Json;
-using DocumentsService;
+using DocumentsService.Storage.Implementations.HDD;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -54,8 +50,9 @@ builder.Services.Configure<KestrelServerOptions>(options =>
     options.AllowSynchronousIO = true;
 });
 
-//builder.Services.AddScoped<IDocumentsRepository, HddDocumentsRepository>();
-builder.Services.AddScoped<IDocumentsRepository, InMemoryDocumentsRepository>();
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<IDocumentsRepository, HddDocumentsRepository>();
+//builder.Services.AddScoped<IDocumentsRepository, DbDocumentsRepository>();
 
 var app = builder.Build();
 

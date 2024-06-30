@@ -6,7 +6,6 @@ namespace DocumentsService.API.Storage.Abstractions
     {
         Task<Document?> GetDocumentByIdAsync(string id);
         Task SaveDocumentAsync(Document document);
-
         Task UpdateDocumentAsync(Document document);
     }
 }
