@@ -5,8 +5,8 @@ This project is an ASP.NET Core service application that provides an API for sto
 ## Implementation Details
 
 ### API Endpoints
-  - Implemented using a controller-based API.
 - Implemented using a controller-based API.
+- Input validation is performed using data annotations.
   
 - **POST /documents**: Creates a new document.
 - **PUT /documents/{id}**: Updates an existing document.
