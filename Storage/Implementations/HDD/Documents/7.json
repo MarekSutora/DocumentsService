@@ -1,0 +1,34 @@
+{
+  "Id": "7",
+  "Tags": [
+    "tag1",
+    "tag2"
+  ],
+  "Data": {
+    "key1": "value1",
+    "key2": 2,
+    "key3": [
+      "item1",
+      "item2",
+      "item3"
+    ],
+    "key4": {
+      "subKey1": "subValue1",
+      "subKey2": [
+        1,
+        2,
+        3
+      ]
+    },
+    "key5": [
+      {
+        "innerKey1": "innerValue1",
+        "innerKey2": 100
+      },
+      {
+        "innerKey3": "innerValue3",
+        "innerKey4": 200
+      }
+    ]
+  }
+}

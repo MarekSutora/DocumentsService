@@ -8,11 +8,10 @@
 
   <ItemGroup>
     <PackageReference Include="ExtendedXmlSerializer" Version="3.7.18" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.6" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="WebApiContrib.Core.Formatter.MessagePack" Version="2.1.0" />
+    <PackageReference Include="WebApiContrib.Core.Formatter.Protobuf" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>

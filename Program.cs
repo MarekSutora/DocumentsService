@@ -4,25 +4,21 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using DocumentsService.Storage.Implementations.InMemoryDb;
 using Microsoft.EntityFrameworkCore;
 using DocumentsService.Storage.Implementations.HDD;
-
+using DocumentsService.API.OutputFormatters;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 
 builder.Services.AddControllers(options =>
 {
     options.RespectBrowserAcceptHeader = true;
     options.OutputFormatters.Insert(0, new CustomXmlOutputFormatter());
     options.OutputFormatters.Insert(0, new MessagePackOutputFormatter(new MessagePackFormatterOptions()));
-
 })
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.PropertyNamingPolicy = null;
-        options.JsonSerializerOptions.DictionaryKeyPolicy = null;
     }
-        )
+   )
     .ConfigureApiBehaviorOptions(options =>
     {
         var builtInFactory = options.InvalidModelStateResponseFactory;
@@ -37,6 +33,7 @@ builder.Services.AddControllers(options =>
             return builtInFactory(context);
         };
     });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -56,12 +53,13 @@ builder.Services.AddScoped<IDocumentsRepository, HddDocumentsRepository>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 

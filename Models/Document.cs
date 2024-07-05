@@ -1,6 +1,4 @@
 
-using System.Text.Json.Serialization;
-
 namespace DocumentsService.API.Models
 {
     public class Document

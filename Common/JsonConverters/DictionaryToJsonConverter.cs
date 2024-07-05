@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using System.Collections.Generic;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-namespace DocumentsService.Common.JsonConverters
+
+namespace DocumentsService.API.Common.JsonConverters
 {
     public class DictionaryToJsonConverter : ValueConverter<Dictionary<string, object>, string>
     {

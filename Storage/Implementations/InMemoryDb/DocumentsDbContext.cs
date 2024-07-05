@@ -1,8 +1,6 @@
-﻿using DocumentsService.API.Models;
-using DocumentsService.Common.JsonConverters;
+﻿using DocumentsService.API.Common.JsonConverters;
+using DocumentsService.API.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using System.Text.Json;
 
 namespace DocumentsService.Storage.Implementations.InMemoryDb
 {

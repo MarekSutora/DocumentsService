@@ -1,9 +1,11 @@
-﻿namespace DocumentsService.DTOs.Response
+﻿
+
+namespace DocumentsService.API.DTOs.Response
 {
     public class ReadDocumentDto
     {
-        public string Id { get; set; }
-        public List<string> Tags { get; set; }
-        public Dictionary<string, object> Data { get; set; }
+        public required string Id { get; set; }
+        public required List<string> Tags { get; set; }
+        public required Dictionary<string, object> Data { get; set; }
     }
 }

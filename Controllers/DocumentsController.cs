@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using DocumentsService.API.DTOs.Request;
 using DocumentsService.API.Storage.Abstractions;
-using System.Xml.Serialization;
-using System.Xml;
 using DocumentsService.API.Models;
-using DocumentsService.DTOs.Request;
+using DocumentsService.API.DTOs.Response;
 
 namespace DocumentsService.API.Controllers
 {
@@ -25,50 +21,19 @@ namespace DocumentsService.API.Controllers
         public async Task<IActionResult> GetDocumentById(string id)
         {
             var document = await _repository.GetDocumentByIdAsync(id);
+
             if (document == null)
             {
                 return NotFound("Document not found.");
             }
-
-            return Ok(document);
-        }
-
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var document = new Document
+            var readDocument = new ReadDocumentDto
             {
-                Id = "1",
-                Tags = new List<string> { "tag1", "tag2" },
-                Data = new Dictionary<string, object>
-            {
-                { "key1", "value1" },
-                { "key2", 2 },
-                { "key3", new List<string> { "item1", "item2", "item3" } },
-                { "key4", new Dictionary<string, object>
-                    {
-                        { "subKey1", "subValue1" },
-                        { "subKey2", new List<int> { 1, 2, 3 } }
-                    }
-                },
-                { "key5", new List<Dictionary<string, object>>
-                    {
-                        new Dictionary<string, object>
-                        {
-                            { "innerKey1", "innerValue1" },
-                            { "innerKey2", 100 }
-                        },
-                        new Dictionary<string, object>
-                        {
-                            { "innerKey3", "innerValue3" },
-                            { "innerKey4", 200 }
-                        }
-                    }
-                }
-            }
+                Id = document.Id,
+                Tags = document.Tags,
+                Data = document.Data
             };
 
-            return Ok(document);
+            return Ok(readDocument);
         }
 
         [HttpPost]

@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace DocumentsService.Common.JsonConverters
+namespace DocumentsService.API.Common.JsonConverters
 {
     public class JsonStringToObjectConverter : JsonConverter<object>
     {
